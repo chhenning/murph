@@ -183,4 +183,27 @@ Matching a subsampled SDR with a random SDR is almost as successful (accurate) a
 
 # Episode 5: Scalar Encoding
 
+# Episode 6: 
 
+# Episode 7: Spatial Pooling - Input Space & Connections
+
+Modeled after NC. The NC is composed of hierarchies of regions
+
+## Spatial Pooling (SP)
+
+Input Space --> SP Algorithm --> Active SP Columns
+
+## Goals Of Spatial Pooling
+
+1. Maintain a fixed sparsity
+2. Maintain Overlap Properties
+    ??? e.g. For two similar inputs the SP must generate two similar outputs ??? 
+
+
+
+
+# Episode 8: 
+
+# Episode 9: 
+
+# Episode 10: 
