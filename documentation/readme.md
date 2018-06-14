@@ -12,3 +12,11 @@ Starting with code analysis of Numenta's Nupic.Core (see nupic_analysis.md)
 
 Adding the notes from HTM School videos.
 
+# Day 4
+
+Working on simple sparse binary vector and matrix class.
+
+Some design choices:
+
+* a std::set to store indices
+* the matrix only stores 1D indices

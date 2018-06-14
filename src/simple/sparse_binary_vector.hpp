@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <set>
 #include <vector>
 
@@ -105,7 +106,7 @@ namespace murph
         };
 
 
-        inline void test()
+        inline void sparse_binary_vector__test()
         {
             {
                 // create a vector with 12 bits where three are turned on.
