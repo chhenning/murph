@@ -27,6 +27,7 @@ namespace murph
 
             typedef size_t index_t;
             typedef std::pair<size_t, size_t> coord_t;
+            typedef std::set<index_t> container_t;
 
         public:
             sparse_binary_matrix(size_t m, size_t n)
@@ -58,18 +59,27 @@ namespace murph
                 }
             }
 
-            bool empty() { return indices.empty(); }
+            /////////////////
+            // Access
+            
+            // \brief Get access to the indices.
+            const container_t& get_indices() const { return indices; }
 
-            size_t num_non_zero() { return indices.size(); }
 
-            bool contains(const index_t i, const index_t j)
+            /////////////////
+            // Non Modifying members
+
+            size_t rows() const { return m_; }
+            size_t columns() const { return n_; }
+
+            bool empty() const { return indices.empty(); }
+
+            size_t num_non_zero() const { return indices.size(); }
+
+            // \brief Is a bit set for a given position
+            bool contains(const index_t i, const index_t j) const 
             {
                 return indices.find(convert_coord(i, j)) != indices.end();
-            }
-
-            void insert(const index_t i, const index_t j)
-            {
-                indices.insert(convert_coord(i, j));
             }
 
 
@@ -85,39 +95,42 @@ namespace murph
                 std::cout << std::endl;
             }
 
-            /*
-            * \brief Print to console in SDR style (0s and 1s).
-            *
-            * 00010001
-            * 11010001
-            * 00010111
-            */
-            void print_sdr()
+            /////////////////
+            // Modifying members
+
+            void insert(const index_t i, const index_t j)
             {
-                for (size_t i = 0; i < m_; ++i)
+                if (i < m_ && j < n_)
                 {
-                    for (size_t j = 0; j < n_; ++j)
-                    {
-                        std::cout << contains(i, j);
-                    }
-                    
-                    std::cout << std::endl;
+                    indices.insert(convert_coord(i, j));
                 }
+                else
+                {
+                    std::cout << "Out of bound." << std::endl;
+                }
+            }
+
+            void clear()
+            {
+                m_ = 0;
+                n_ = 0;
+
+                indices.clear();
             }
 
         private:
             
-            coord_t convert_index(index_t index)
+            coord_t convert_index(index_t index) const 
             {
                 return coord_t(index / m_, index % m_);
             }
 
-            index_t convert_coord(const index_t i, const index_t j)
+            index_t convert_coord(const index_t i, const index_t j) const
             {
                 return j * m_ + i;
             }
 
-            index_t convert_coord(const coord_t& c)
+            index_t convert_coord(const coord_t& c) const
             {
                 return convert_coord(c.first, c.second);
             }
@@ -165,12 +178,12 @@ namespace murph
             {
                 // create a vector with 12 bits where three are turned on.
                 sparse_binary_matrix a { {0,1,1}, {1,0} };
-                a.print_sdr();
+                a.print();
                 assert(a.num_non_zero() == 3);
                 assert(a.contains(0, 1));
 
                 a.insert(0, 0);
-                a.print_sdr();
+                a.print();
             }
         }
     }

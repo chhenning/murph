@@ -31,5 +31,10 @@ This is the real stuff!
 
 ### Spatial Pooling
 
+potential pool -> potential connection for a column
+
+
+
+
 ### TM
 

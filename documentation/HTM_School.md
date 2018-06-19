@@ -189,7 +189,7 @@ Matching a subsampled SDR with a random SDR is almost as successful (accurate) a
 
 Modeled after NC. The NC is composed of hierarchies of regions
 
-## Spatial Pooling (SP)
+## Spatial Pooling
 
 Input Space --> SP Algorithm --> Active SP Columns
 
@@ -198,6 +198,45 @@ Input Space --> SP Algorithm --> Active SP Columns
 1. Maintain a fixed sparsity
 2. Maintain Overlap Properties
     ??? e.g. For two similar inputs the SP must generate two similar outputs ??? 
+
+## Input Space
+
+An input space is collection of SDRs of certain bit length. Each SDR represents data of an instance in such space. The input space is likely to be huge (10^100 or more). 
+
+The SDR can be subdivided into several sections (buckets of bits) which represent different data streams. E.g.
+
+1. Bits 0 - 199: Power Consumption
+2. Bits 200 - 399: Time of Day
+3. Bits 400 - 599: Weekday
+
+## SP initialization to a specific input space
+
+A SP is a collection of "columns". Each column has a relationship to each bit in the input space, called a pool of potential connections.
+
+The number of (potential) connections is a parameter when the SP is initialized. It's represented by a percentage, e.g. 85% of all bits from the input space.
+
+Each connection has a permanence attached to it. @10:10min
+
+* white cells -> column will never connect to this bit
+* red cells -> very low permanence (0.1), hence column is not connected to this bit
+* yellow cells -> medium permanence
+* green cells -> strong permanence
+
+A connection threshold defines the permanence which enables a connection.
+
+By definition the SP will keep a certain number of connections even if the connection threshold is high. Depends on a distribution function which narrows or widens based on the input parameters.
+
+
+For a specific SDR each SP column is connected to a set ON bits in the SDR and also connected to set of OFF bits. The number of ON bits is called the overlap score. If the number exceeds a certain threshold the column is part of Active columns. @18:20min
+
+For each SDR being pushed through a SP a set of active columns will be generated. Such set of active cells can then be compared to other sets of active cells and similarities (e.g. overlap score) can be determined. For instance, if 10% of active cells matches to another set the two SDR's might be related.
+
+
+### SP Parameters
+
+1. Potential Percentage: Percentage of connections to input space
+2. Synaptic Permanence Connected (Connection Treshold): Percentage of permanence needed to make a connection.
+
 
 
 

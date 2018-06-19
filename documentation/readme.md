@@ -20,3 +20,19 @@ Some design choices:
 
 * a std::set to store indices
 * the matrix only stores 1D indices
+
+# Day 5
+
+Adding more operations to sparse binary matrix.
+
+* overlap
+* match
+
+# Day 6
+
+Starting with Spatial Pooling Algorithm. As a refresher I'll go throught HTM school video Episode 6. See HTM_School.md
+
+Let's also start with Chapter 3 in "2011 - Hierarchical Temporal Memory...". See 2011-HTM_paper.md
+
+Let's also start a tutorial with simplest approximation of a spatial pooler function.
+
