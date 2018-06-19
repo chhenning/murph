@@ -27,7 +27,10 @@
     <ClInclude Include="sparse_binary_matrix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SDR.hpp">
+    <ClInclude Include="spatial_pooler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdr.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="simple.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spatial_pooler_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

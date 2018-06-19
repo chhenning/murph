@@ -1,4 +1,7 @@
 
+https://discourse.numenta.org/t/htm-glossary-for-machine-learning/2118
+
+
 HTM - Hierarchical Temporal Memory
 
 NC - Neocortex

@@ -36,3 +36,9 @@ Let's also start with Chapter 3 in "2011 - Hierarchical Temporal Memory...". See
 
 Let's also start a tutorial with simplest approximation of a spatial pooler function.
 
+# Day 7
+
+Read through the code for spatial pooler and figure out how to replicate the code. The goal is to have a SP running like
+Episode 6 from HTM School.
+
+Let's pool the resources into one document.

@@ -147,14 +147,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="SDR.hpp" />
+    <ClInclude Include="sdr.hpp" />
     <ClInclude Include="sparse_binary_matrix.hpp" />
     <ClInclude Include="sparse_binary_vector.hpp" />
+    <ClInclude Include="spatial_pooler.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="simple.cpp" />
+    <ClCompile Include="spatial_pooler_test.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
