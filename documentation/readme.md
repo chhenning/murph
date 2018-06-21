@@ -42,3 +42,9 @@ Read through the code for spatial pooler and figure out how to replicate the cod
 Episode 6 from HTM School.
 
 Let's pool the resources into one document.
+
+# Day 8
+
+Create first cpp version of random spatial pooler. It now selects the active cells when running one sdr through the pooler.
+
+Toy around with python's jupyter notebook. Pretty cool tool to code, annotate, display/plot data.

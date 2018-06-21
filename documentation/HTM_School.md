@@ -185,7 +185,7 @@ Matching a subsampled SDR with a random SDR is almost as successful (accurate) a
 
 # Episode 6: 
 
-# Episode 7: Spatial Pooling - Input Space & Connections
+# Episode 7: [Spatial Pooling - Input Space & Connections](https://www.youtube.com/watch?v=R5UoFNtv5AU)
 
 Modeled after NC. The NC is composed of hierarchies of regions
 

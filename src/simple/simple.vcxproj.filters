@@ -41,7 +41,7 @@
     <ClCompile Include="simple.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="spatial_pooler_test.cpp">
+    <ClCompile Include="random_spatial_pooler_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
