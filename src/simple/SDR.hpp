@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iterator>
+#include <random>
 
 #include "sparse_binary_matrix.hpp"
 
@@ -20,11 +21,23 @@ namespace murph
 
         public:
 
-            sdr(size_t n)
+            // \brief Create a empty sdr.
+            sdr()
+                : sparse_binary_matrix(0,0)
+            {}
+
+            // \brief Create a 1D SDR. Basically one row with n columns.
+            sdr(const size_t n)
                 : sparse_binary_matrix(1, n)
             {}
 
-            // \brief Create from 1D vector.
+            // \brief Create a 1D SDR. Basically one row with n columns.
+            sdr(const size_t m, const size_t n)
+                : sparse_binary_matrix(m, n)
+            {}
+
+
+            // \brief Create from 1D sdr.
             sdr(std::initializer_list<size_t> list)
                 : sparse_binary_matrix(1, list.size())
             {
@@ -98,26 +111,32 @@ namespace murph
             }
 
             // \brief Create a random sdr with a given sparsity in percentage.
+            //
+            // \remarks This functions makes sure the given sparsity will not be exceeded. But if
+            //          can be slightly lower due to randomly generating the same index multiple times.
             void create(double sparsity, int seed = 0)
             {
-                if (sparsity > 0)
+                if (sparsity > 0.0)
                 {
                     size_t num_on_bits = static_cast<size_t>(columns() * sparsity);
 
                     if (num_on_bits > 0)
                     {
-                        std::srand(seed);
+                        auto max_index = convert_coord(rows() - 1, columns() - 1);
+                        
+                        std::default_random_engine generator(seed);
+                        std::uniform_int_distribution<size_t> uniform_distribution(0, max_index);
 
                         for (size_t v = 0; v < num_on_bits; ++v)
                         {
-                            insert(0, std::rand() % columns());
+                            insert(uniform_distribution(generator));
                         }
                     }
                 }
             }
-
-        private:
         };
+
+
 
 
         inline void sdr__test()

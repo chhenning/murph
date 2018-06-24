@@ -2,7 +2,6 @@
 
 
 #include <cmath>
-
 #include <algorithm>
 #include <iostream>
 #include <random>
@@ -18,12 +17,14 @@ namespace murph
         ////////////////
         // This is an example of a random spatial spooler which doesn't learn.
 
-
         typedef size_t index_t;
         typedef std::vector<index_t> sdr_t;
 
         // 1D input space
         const size_t input_space_size = 300;
+
+        // each SDR >= to 2% sparsity
+        const float sparsity = 0.02;
         
         // number of columns
         const size_t num_columns = 300;
@@ -31,7 +32,7 @@ namespace murph
         // number of potential connections (percentage of input space bits)
         const float potential_percent = 0.5f;
 
-        // if permanence is >= then there is a connection
+        // if permanence is >= than there is a connection
         const float connection_threshold = 0.1f;
 
         // if overlap score is >= then a column becomes active
@@ -142,7 +143,7 @@ namespace murph
 
         void column::compute(overlap& o) const
         {
-            // Find overlap
+            // Find overlaps
             for (size_t i = 0; i < num_potential_connections; ++i)
             {
                 if (permanences[i] > connection_threshold)
@@ -154,12 +155,11 @@ namespace murph
                     }
                 }
             }
+
+            // 
         }
 
         ////////////////////
-
-
-
 
         void do_stats(const columns_t& columns)
         {
@@ -177,13 +177,15 @@ namespace murph
             auto columns = columns_t(num_columns);
             std::for_each(columns.begin(), columns.end(), [](column& col) {col.init(); });
 
+            // create a random sdr
             std::uniform_int_distribution<size_t> dist(0, 1);
             sdr_t a(input_space_size, 0);
-            std::generate(a.begin(), a.end(), [&dist]() {return dist(generator); });
+            std::generate(a.begin(), a.end(), [&dist]() { return dist(generator); });
 
             std::vector<overlap> overlaps;
             std::vector<column> active_columns;
 
+            // calculate the overlap score for each column with each sdr
             std::for_each(columns.begin(), columns.end(), [&a, &overlaps, &active_columns](const column& col)
             { 
                 overlap o(a, col);

@@ -98,7 +98,8 @@ namespace murph
             /////////////////
             // Modifying members
 
-            void insert(const index_t i, const index_t j)
+            // \brief Insert a on bit by coordinate.
+            void insert(const size_t i, const size_t j)
             {
                 if (i < m_ && j < n_)
                 {
@@ -110,6 +111,13 @@ namespace murph
                 }
             }
 
+            // \brief Insert a on bit by index.
+            void insert(const size_t i)
+            {
+                indices.insert(i);
+            }
+
+            // \brief Clear matrix.
             void clear()
             {
                 m_ = 0;
@@ -118,14 +126,14 @@ namespace murph
                 indices.clear();
             }
 
-        private:
+        protected:
             
             coord_t convert_index(index_t index) const 
             {
                 return coord_t(index / m_, index % m_);
             }
 
-            index_t convert_coord(const index_t i, const index_t j) const
+            index_t convert_coord(const size_t i, const size_t j) const
             {
                 return j * m_ + i;
             }
