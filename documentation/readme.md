@@ -52,3 +52,16 @@ Toy around with python's jupyter notebook. Pretty cool tool to code, annotate, d
 # Day 9
 
 Creating tutorials.
+
+0 - Setting Up Code
+1 - Sparse Binary Matrix
+2 - SDR
+
+# Day 10
+
+Found the Simple Temporal Pooler project
+
+https://www.youtube.com/watch?v=BHjiffn_i64
+https://github.com/LongBoolean/simple-temporal-memory
+
+

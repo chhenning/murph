@@ -13,7 +13,7 @@ A few caveats before we start:
 
 * Each SDR is 1D.
 * The SP has no learning step.
-* Each column is 1D.
+* Each column is 1D. Meaning just one cell.
 * The receptive field for each column is the whole input space.
 
 These are pretty severe caveats and will need to be eliminated in subsequent tutorials.
@@ -24,9 +24,9 @@ These are pretty severe caveats and will need to be eliminated in subsequent tut
 This tutorial is not an introduction of the HTM. For that please start with the links in the [reference section](#references).
 
 
-* **Input Space**: 
+* **Input Space**: The universe of all values and value combinations. For instance, all possible values of a sin curve.
 * **SDR**: An instance of the input space. Basically a bit array.
-* **Receptive Field**: A list bits in the input space
+* **Receptive Field**: A list bits in the input space that a column might make a connection with.
 * **Permanence**: 
 
 ## Setting up the source code

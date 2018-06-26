@@ -4,9 +4,9 @@ Hierarchical Temporal Memory (HTM) need a sparse binary matrix to represent Spar
 
 ## Disclaimer
 
-The implementation in this tutorial wont be an efficient nor a complete implementation of a Sparse Binary Matrix. In fact, over the course of this series of tutorials we will add more and more functionality.
+The implementation in this tutorial wont be an efficient nor a complete implementation of a Sparse Binary Matrix. In fact, over the course of this series we will add more and more functionality.
 
-See [here](#Future) 
+See [Future](#Future) 
 
 # Theory
 
@@ -37,6 +37,7 @@ For now I have choosen to keep the indices in a `std::set<index_t>` for the foll
 * Easy to add indices without creating duplicates
 * Indices will be ordered automatically.
 * Finding, inserting, and removal of an index is of logarithmic complexity.
+* The STL has set algoritms for Union, Difference, Intersection, etc. operations.
 
 In addition to the `std::set` design choice, a coordinate x, y will be converted into a 1D index, and vice versa.
 
@@ -61,6 +62,10 @@ index_t convert_coord(const coord_t& c) const
 
 ## Cons
 
+
+# Dense and Sparse Non-Binary Matrices
+
+I'll be using 
 
 
 # Future 
