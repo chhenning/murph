@@ -49,7 +49,7 @@ namespace murph
 
         class overlap;
 
-        // 1D column
+        // \brief Mini-Column representing 1 Cell.
         class column
         {
         public:
@@ -85,7 +85,7 @@ namespace murph
                     // keep [0, 1]
                     auto permanence = normal_distribution(generator);
                     permanence = (permanence >= 0.f) ? permanence : 0;
-                    permanence = (permanence < 1.f) ? permanence : 1;
+                    permanence = (permanence <= 1.f) ? permanence : 1;
 
                     permanences.push_back(permanence);
 
@@ -95,8 +95,6 @@ namespace murph
                         num_connected_synapses++;
                     }
                 }
-
-
             }
 
             //
@@ -175,7 +173,7 @@ namespace murph
         void run_test()
         {
             auto columns = columns_t(num_columns);
-            std::for_each(columns.begin(), columns.end(), [](column& col) {col.init(); });
+            std::for_each(columns.begin(), columns.end(), [](column& col) { col.init(); });
 
             // create a random sdr
             std::uniform_int_distribution<size_t> dist(0, 1);
