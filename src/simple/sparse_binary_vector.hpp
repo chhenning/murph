@@ -55,7 +55,7 @@ namespace murph
                 truncate();
             }
 
-            // \brief Remove all indices that are out of bounce.
+            // \brief Remove all indices that are out of bounds.
             // 
             // \remarks This function will be called for each function which is changing the indices.
             void truncate()

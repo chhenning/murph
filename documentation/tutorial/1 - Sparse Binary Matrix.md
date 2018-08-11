@@ -63,9 +63,7 @@ index_t convert_coord(const coord_t& c) const
 ## Cons
 
 
-# Dense and Sparse Non-Binary Matrices
 
-I'll be using 
 
 
 # Future 

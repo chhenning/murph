@@ -26,7 +26,7 @@ potentialPct -  A float parameter representing the percentage of the input, with
                 This parameter is used to give each column a unique potential pool when a large potentialRadius causes overlap between the columns.
                 At initialization time we choose ((2*potentialRadius + 1)^(# inputDimensions) * potentialPct) input bits to comprise the column's potential pool.
 
-                
+globalInhibition A boolean parameter, if true                
 
 ## Initialization
 

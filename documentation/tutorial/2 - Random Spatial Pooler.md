@@ -91,7 +91,7 @@ Two steps:
 
 ### Initializing the SP
 
-One time procedure to define the SPs columns and how they map back into the input space. Each column has its own receptive field (collection of bits in input space) and permanence (strengh). If the permanece is strong enough a connection is established.
+One time procedure to define the SPs columns and how they map back into the input space. Each column has its own receptive field (collection of bits in input space) and permanence (strengh). If the permanence is strong enough a connection is established.
 
 ```
 auto columns = columns_t(num_columns);

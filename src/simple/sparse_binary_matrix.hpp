@@ -130,7 +130,7 @@ namespace murph
             
             coord_t convert_index(index_t index) const 
             {
-                return coord_t(index / m_, index % m_);
+                return coord_t(index % m_, index / m_);
             }
 
             index_t convert_coord(const size_t i, const size_t j) const
@@ -168,32 +168,6 @@ namespace murph
             // 1D indices
             std::set<index_t> indices;
         };
-
-
-        inline void sparse_binary_matrix__test()
-        {
-            {
-                // create a vector with 12 bits where three are turned on.
-                sparse_binary_matrix a(12, 23);
-                a.print();
-            }
-
-            {
-                // empty matrix
-                sparse_binary_matrix a {};
-            }
-
-            {
-                // create a vector with 12 bits where three are turned on.
-                sparse_binary_matrix a { {0,1,1}, {1,0} };
-                a.print();
-                assert(a.num_non_zero() == 3);
-                assert(a.contains(0, 1));
-
-                a.insert(0, 0);
-                a.print();
-            }
-        }
     }
 }
 

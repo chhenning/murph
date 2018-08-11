@@ -33,12 +33,8 @@ assert(sparse.nonZeros(2) == 2);
 // Converting from sparse<int> to dense<float>
 blaze::CompressedMatrix<std::uint32, blaze::rowMajor> sparse2{ {0,99,88}, {0,77,11} };
 blaze::DynamicMatrix<float, blaze::rowMajor> dense2(sparse2);
-
-
 ```
 
 # Reference
 
-[1] 
-
-[2] [Blaze](https://bitbucket.org/blaze-lib/blaze/src/master/)
+[1] [Blaze](https://bitbucket.org/blaze-lib/blaze/src/master/)
